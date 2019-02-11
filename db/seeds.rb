@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+puts "On supprime tout"
+User.destroy_all
+Event.destroy_all
+Attendance.destroy_all
+puts "C'est bon c'est clean !"
 
 puts "Création d'utilisateurs"
 10.times do 
@@ -15,14 +19,12 @@ puts "Utilisateurs crée !"
 
 puts "Création d'events"
 10.times do 
-  event = Event.create!(start_date: Faker::Date.forward, duration: 50, title: Faker::Food.dish, description: Faker::Hacker.say_something_smart , price: Faker::Number.between(1, 1000)  , location: Faker::TvShows::GameOfThrones.city, admin_id: rand(User.all.first.id..User.all.last.id))
+  event = Event.create!(start_date: Faker::Date.forward, duration: 50, title: Faker::Book.title, description: Faker::Hacker.say_something_smart , price: Faker::Number.between(1, 1000)  , location: Faker::TvShows::GameOfThrones.city, admin_id: rand(User.all.first.id..User.all.last.id))
 end
 puts "Events crée !"
 
-=begin
 puts "Création de reservation"
 10.times do 
-
+  resa = Attendance.create!(stripe_customer_id: Faker::Number.number(10), event_id: rand(Event.all.first.id..Event.all.last.id), user_id: rand(User.all.first.id..User.all.last.id))
 end
 puts "Reservation crée !"
-=end
