@@ -27,4 +27,4 @@ puts "Création de reservation"
 10.times do 
 resa = Attendance.create!(stripe_customer_id: Faker::Number.number(10), event_id: rand(Event.all.first.id..Event.all.last.id), user_id: rand(User.all.first.id..User.all.last.id))
 end
-puts "Reservation créée !"
+puts "Réservation créée !"
