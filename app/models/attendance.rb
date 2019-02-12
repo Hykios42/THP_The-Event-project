@@ -7,7 +7,7 @@ class Attendance < ApplicationRecord
   private
   
   def new_attendee_send
-    AttendanceMailer.new_attendee_email(self).deliver_now
+    AttendanceMailer.new_attendee_email(@self).deliver_now
   end
 
 end
