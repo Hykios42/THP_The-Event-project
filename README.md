@@ -17,7 +17,7 @@ Puis en console **créer un utilisateur :**
 
 **créer une réservation :**
 
-    a = Attendance.create(user_id: u.id, event_id: e)
+    a = Attendance.create(stripe_customer_id: 12847264, user_id: u.id, event_id: e.id)
 
 > Tu peux vérifier que les mails ont bien été envoyés sur yopmail.com
 
