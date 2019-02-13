@@ -7,6 +7,6 @@ class UsersController < ApplicationController
   private
 
   def own_profile
-    if 
+    
   end
 end
