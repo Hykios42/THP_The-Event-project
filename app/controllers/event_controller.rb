@@ -1,4 +1,5 @@
 class EventController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
   def index
     @event = Event.all
   end
