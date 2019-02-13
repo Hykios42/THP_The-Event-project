@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Page de profil</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10">
+      <h2>Mes informations</h2>
+      <ul>
+        <li><%=current_user.first_name%> <%=current_user.last_name%></li>
+        <li><%=current_user.description%></li>
+        <li><%=current_user.email%></li>
+      </ul>
+      <br><br>
+      <h2>Mes événements</h2>
+        <div class="row">
+        <% Event.all.each do |event|%>
+          <%if event.admin_id == current_user.id%>
+            <div class="col">
+              <div class="card mb-4" style="width: 17rem; height: 12rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= event.title.capitalize!%></h5>
+                  <p class="card-text"><%= event.description[0..50] %>...</p> 
+                    <div class="col text-center">
+                      <a href="<%= event_path(event.id)%>" class="btn btn-info">Voir plus</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
