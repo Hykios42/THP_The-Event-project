@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get 'home/secret'
   devise_for :users
   root to: "home#index"
+
+  resources :event
 end
