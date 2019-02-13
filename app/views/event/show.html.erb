@@ -1,21 +1,29 @@
 <div class="container show_event">
   <div class="col text-center">
-    <h2>Voici le event n°<%=@event.id%></h2><br>
+    <h2>Voici l'event n°<%=@event.id%></h2><br>
   </div>
 
   <div class="card mx-3">
     <div class="card-header">
-      <strong><%= @event.title.capitalize!%></strong>
+      <strong><%= @event.title%></strong>
     </div>
 
     <div class="card-body px-4">
-
+      <!--- AJOUTER UN IF POUR CE BOUTON --->
+      <%= submit_tag "Participe !", class: 'btn btn-success ml-3'%>
+      <br/>   
+      <p>Price : <%= @event.price%></p>
+      <p>Duration: <%= @event.duration%> min</p>
+      <p>Nombre d'inscrit : à venir</p>
+      <p>Email de l'orga' : <%= admin_event_email%></p>
+      <p>Debute le : <%= @event.start_date%></p>
+      <p>Fin le : <%=event_end_date%></p>
+      <p>Location : <%= @event.location%></p>
       <blockquote class="blockquote mb-0">
         <em>"<%= @event.description %>"</em><p></p>
         <footer class="blockquote-footer">
           <p>rédigé le <%= @event.created_at %></p>
           <p>Par : <a href="<%=@event.admin_id%>" class="card-link"><%= User.find(@event.admin_id).first_name%> <%= User.find(@event.admin_id).last_name %></a></p>
-
           <%if current_user%>
             <%if current_user.id == @event.admin_id%>
               <div class="row flex-row">
