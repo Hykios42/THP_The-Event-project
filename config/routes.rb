@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  get 'home/secret'
   devise_for :users
   root to: "home#index"
-
+  resources :home, only: [:index, :secret]
   resources :event
+  resources :users, only: [:show]
 end
