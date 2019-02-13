@@ -1,5 +1,5 @@
 # Bienvenue dans le monde merveilleux des mailers
-.
+..
 
 => Notre site en prod : 
 [TheEventProjectMTP](https://the-eventbrite-project-mtp-2.herokuapp.com/)
