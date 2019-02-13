@@ -4,7 +4,7 @@ module EventHelper
     Event.new
   end
 
-  def event_current
+  def current_event
     Event.find(@event.id)
   end
 
@@ -13,6 +13,6 @@ module EventHelper
   end
 
   def admin_event_email
-    User.find(event_current.admin_id).email
+    User.find(current_event.admin_id).email
   end 
 end
