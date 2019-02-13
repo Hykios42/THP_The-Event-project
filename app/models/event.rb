@@ -36,4 +36,10 @@ class Event < ApplicationRecord
     end 
   end
 
+  private
+
+  def add_attendance
+    Attendance.create(user.id: , event_id: )
+  end 
+
 end

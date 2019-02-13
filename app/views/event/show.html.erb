@@ -10,7 +10,11 @@
 
     <div class="card-body px-4">
       <!--- AJOUTER UN IF POUR CE BOUTON --->
-      <%= submit_tag "Participe !", class: 'btn btn-success ml-3'%>
+      <%if current_user %> 
+      <%= link_to "Participe !", new_event_charge_path(@event.id), :method => 'get', class: 'btn btn-success ml-3'%>
+      <%else%>
+      <%= link_to "Participe !", new_user_session_path, :method => 'get', class: 'btn btn-success ml-3'%>
+      <%end%>
       <br/>   
       <p>Price : <%= @event.price%></p>
       <p>Duration: <%= @event.duration%> min</p>

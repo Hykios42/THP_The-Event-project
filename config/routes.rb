@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
   resources :home, only: [:index, :secret]
-  resources :event
+  resources :event do
+  	resources :charges
+	end
   resources :users, only: [:show]
+  resources :participations, only: [:index, :new, :create, :destroy]
+  
 end
