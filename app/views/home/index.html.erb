@@ -1,17 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Homepage</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
   </head>
@@ -23,14 +12,13 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron bg-dark ">
         <div class="container">
-          <h1 class="text-center text-white display-3 mb-5">Bienvenue sur the event project</h1>
-          <div class="text-center text-white col-md-8 mx-auto mb-5">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</div>
-          <div class="text-center col-md-8 mx-auto mb-5"><a class="btn btn-primary btn-lg" href="#" role="button">Créer un event &raquo;</a></div>
+          <h1 class="text-center text-white display-3 mb-5">Bienvenue sur The Event Project</h1>
+          <div class="text-center text-white col-md-8 mx-auto mb-5">Ce site regroupe tous les événements organisés à Montpellier et aux alentours. Inscrivez-vous dès maintenant et entrez dans la communauté des Event Creators!</div>
+          <div class="text-center col-md-8 mx-auto mb-5"><a class="btn btn-primary btn-lg" href="<%=new_event_path%>" role="button">Créer un event &raquo;</a></div>
         </div>
       </div>
 
       <div class="container">
-        <!-- Example row of columns -->
         <div class="row">
         	<%Event.all.each do |event|%>
         	<%@event = event %>
