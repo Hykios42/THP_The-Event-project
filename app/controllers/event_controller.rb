@@ -4,7 +4,7 @@ class EventController < ApplicationController
   end
 
   def show
-    #@event = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
@@ -12,7 +12,7 @@ class EventController < ApplicationController
   end
 
   def edit
-    #@event = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def create
@@ -24,7 +24,6 @@ class EventController < ApplicationController
     end
   end
 
-=begin  
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
@@ -39,5 +38,4 @@ class EventController < ApplicationController
     @event.destroy
     redirect_to events_path
   end
-=end
 end
