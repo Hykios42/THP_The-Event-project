@@ -9,5 +9,4 @@ class Attendance < ApplicationRecord
   def new_attendee_send
     AttendanceMailer.new_attendee_email(@self).deliver_now
   end
-
 end

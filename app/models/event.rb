@@ -34,6 +34,7 @@ class Event < ApplicationRecord
     if start_date.to_i < DateTime.now.to_i
       errors.add{"Event already past"}
     end 
+  
   end
 
 end
