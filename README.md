@@ -16,4 +16,4 @@ Bien commencer par les bundle install, rails db:create et tout le reste.
 
 ⚠️⚠️⚠️ LE MAILING NE MARCHE PAS : La faute à nos clé api ban !  😎😎😎
 
-![](https://media.giphy.com/media/tvGOBZKNEX0ac/giphy.gif)
+![](https://media.giphy.com/media/vnFB72LzHtO4o/giphy.gif)
