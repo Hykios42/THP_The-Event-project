@@ -9,17 +9,6 @@
     </div>
 
     <div class="card-body px-4">
-      <!--- AJOUTER UN IF POUR CE BOUTON --->
-
-      <%if current_user && @event.admin_id != current_user.id%> 
-        <%= link_to "Participe !", new_event_charge_path(@event.id), :method => 'get', class: 'btn btn-success ml-3'%>
-      <%elsif current_user && @event.admin_id == current_user.id %>
-        <span>Vous êtes l'admin vous ne pouvez pas participer</span>
-      <%elsif current_user && Attendance.where(user_id: current_user.id).exists?%>
-        <span>Vous participez déjà :)</span>
-      <%else %>
-        <%= link_to "Participe !", new_user_session_path, :method => 'get', class: 'btn btn-success ml-3'%>
-      <%end%>
 
       <br/>   
       <p>Price : <%= @event.price%></p>
@@ -34,18 +23,34 @@
         <footer class="blockquote-footer">
           <p>rédigé le <%= @event.created_at %></p>
           <p>Par : <a href="<%=@event.admin_id%>" class="card-link"><%= User.find(@event.admin_id).first_name%> <%= User.find(@event.admin_id).last_name %></a></p>
-          <%if current_user%>
-            <%if current_user.id == @event.admin_id%>
-              <div class="row flex-row">
+
+          <div class="row flex-row">
+            <%if current_user%>
+              <%if current_user.id == @event.admin_id%>
                 <a href="<%=edit_event_path(@event.id)%>" class="btn btn-info ml-4">Modifier</a>
                 <%= form_tag url_for(action: 'destroy'), method: "delete" do%>
                   <%= submit_tag "Supprimer", class: 'btn btn-danger ml-3'%>
                 <%end%>
-              </div>
+              <%end%>
+              <%else%>
+                <span class="d-flex align-items-center">Connecte toi pour modifier tes potins</span>
+           <%end%>
+
+            <%if current_user && @event.admin_id == current_user.id %>
+              <%= link_to "Voir les participants", event_charges_path(@event.id), :method => 'get', class: 'btn btn-success ml-3'%>
             <%end%>
-          <%else%>
-              <br><p>Connecte toi pour modifier tes potins</p>
-          <%end%>
+            <br>
+            <%if current_user && @event.admin_id != current_user.id%> 
+              <%= link_to "Participe !", new_event_charge_path(@event.id), :method => 'get', class: 'btn btn-success ml-3'%>
+            <%elsif current_user && @event.admin_id == current_user.id %>
+              <span class="d-flex align-items-center ml-3">Vous êtes l'admin vous ne pouvez pas participer</span>
+            <%elsif current_user && Attendance.where(user_id: current_user.id).exists?%>
+              <span class="d-flex align-items-center ml-3">Vous participez déjà :)</span>
+            <%else %>
+              <%= link_to "Participe !", new_user_session_path, :method => 'get', class: 'btn btn-success ml-3'%>
+            <%end%>
+          </div>
+
         </footer>
       </blockquote>
     </div>
