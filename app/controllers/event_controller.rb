@@ -19,6 +19,7 @@ class EventController < ApplicationController
   def create
     @event = Event.create!(title: params[:title],description: params[:description], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location], admin_id: current_user.id)
     if @event.save
+      flash[:success] = "Event created!"
       redirect_to event_path(@event.id)
     else
       render :new
@@ -28,6 +29,7 @@ class EventController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(title: params[:title],description: params[:description], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location])
+      flash[:success] = "Event Update!"
       redirect_to event_path(@event.id)
     else
       render :edit
