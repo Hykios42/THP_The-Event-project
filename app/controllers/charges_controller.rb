@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-	before_action :admin_user, only: [:index]
+	before_action :admin_user, only: [:index, :edit]
 
 	def index
     @attendances = []
