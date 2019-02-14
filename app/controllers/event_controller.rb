@@ -17,9 +17,9 @@ class EventController < ApplicationController
   end
 
   def create
-    @event = Event.new(Event_params)
+    @event = Event.create!(title: params[:title],description: params[:description], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location], admin_id: current_user.id)
     if @event.save
-      redirect_to @event
+      redirect_to event_path(@event.id)
     else
       render :new
     end
@@ -27,8 +27,8 @@ class EventController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(event_params)
-      redirect_to @event
+    if @event.update(title: params[:title],description: params[:description], start_date: params[:start_date], duration: params[:duration], price: params[:price], location: params[:location])
+      redirect_to event_path(@event.id)
     else
       render :edit
     end
