@@ -10,4 +10,4 @@
 
 Bien commencer par les bundle install, rails db:create et tout le reste.
 
-![](https://media.giphy.com/media/UEbfQpfuK0xO0/giphy.gif)
+![](https://media.giphy.com/media/3o7aTskHEUdgCQAXde/giphy.gif)
