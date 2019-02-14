@@ -8,5 +8,9 @@
         <p><%=User.find_by(id: participation.user_id).first_name%></p>
       <%end%>
     <%end%>
+
+    <div class="row flex-row">
+      <%= link_to "Modifier", edit_event_path(@event.id), class: "btn btn-info ml-4", :method => 'get'%>
+    </div>
   </body>
 </html>
