@@ -16,11 +16,4 @@ module EventHelper
     User.find(current_event.admin_id).email
   end
 
-  def attendees_counter
-    @counter = 0
-    Attendance.all.each do |participation|
-      if participation.event_id == @event.id
-      end
-    end
-  end
 end
