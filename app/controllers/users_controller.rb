@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     if params[:id].to_i == current_user.id
     else
       redirect_to user_path(current_user.id)
-      #flash[:error] = "Tu n'as pas l'autorisation"       fix si on a le temps
     end
   end
 end

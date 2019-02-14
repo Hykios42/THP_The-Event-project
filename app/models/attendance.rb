@@ -1,5 +1,5 @@
 class Attendance < ApplicationRecord
-  after_create :new_attendee_send
+  #after_create :new_attendee_send < Email send off because he fuck up heroku >
 
   belongs_to :user
   belongs_to :event
