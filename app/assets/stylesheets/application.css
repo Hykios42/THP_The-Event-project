@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ body > footer
+ {
+     background-color: #CDE1E5;
+     height: 70px;
+     width: 100%;
+     min-width: 980px;
+     position: fixed;
+     bottom: 0px;
+ }
