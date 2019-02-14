@@ -2,6 +2,11 @@
 <html>
   <head></head>
   <body>
-    <p>Bonjour</p>
+    <p>RAJOUTER TITRE</p>
+    <%Attendance.all.each do |participation|%>
+      <%if participation.event_id == @event.id%>
+        <p><%=User.find_by(id: participation.user_id).first_name%></p>
+      <%end%>
+    <%end%>
   </body>
 </html>
